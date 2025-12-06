@@ -3,8 +3,10 @@ import { useLocalSearchParams } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlatList, Text, View } from "react-native";
 import { useEffect } from "react";
+import { MenuItem } from "@/type";
 import useAppwrite from "@/lib/useAppwrite";
 import CartButton from "@/components/CartButton";
+import MenuCard from "@/components/MenuCard";
 import cn from "clsx";
 
 export default function Search() {
@@ -43,7 +45,7 @@ export default function Search() {
                 !isFirstRightColItem ? "mt-10" : "mt-0",
               )}
             >
-              <Text>Menu Card</Text>
+              <MenuCard item={item as unknown as MenuItem} />
             </View>
           );
         }}
