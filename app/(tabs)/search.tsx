@@ -3,11 +3,13 @@ import { useLocalSearchParams } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlatList, Text, View } from "react-native";
 import { useEffect } from "react";
-import { MenuItem } from "@/type";
+import { Category, MenuItem } from "@/type";
 import useAppwrite from "@/lib/useAppwrite";
 import CartButton from "@/components/CartButton";
 import MenuCard from "@/components/MenuCard";
 import cn from "clsx";
+import SearchBar from "@/components/SearchBar";
+import Filter from "@/components/Filter";
 
 export default function Search() {
   const { category, query } = useLocalSearchParams<
@@ -54,7 +56,7 @@ export default function Search() {
         columnWrapperClassName="gap-7"
         contentContainerClassName="gap-7 px-5 pb-32"
         ListHeaderComponent={() => (
-          <View className="my-5 pga-5">
+          <View className="my-5 gap-5">
             <View className="flex-between flex-row w-full">
               <View className="flex-start">
                 <Text className="small-bold uppercase text-primary">
@@ -68,8 +70,8 @@ export default function Search() {
               </View>
               <CartButton />
             </View>
-            <Text>Search Input</Text>
-            <Text>Filter</Text>
+            <SearchBar />
+            <Filter categories={categories as unknown as Category[]} />
           </View>
         )}
         ListEmptyComponent={() => !loading && <Text>No results</Text>}
