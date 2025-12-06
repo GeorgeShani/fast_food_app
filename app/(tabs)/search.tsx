@@ -7,9 +7,9 @@ import { Category, MenuItem } from "@/type";
 import useAppwrite from "@/lib/useAppwrite";
 import CartButton from "@/components/CartButton";
 import MenuCard from "@/components/MenuCard";
-import cn from "clsx";
 import SearchBar from "@/components/SearchBar";
 import Filter from "@/components/Filter";
+import cn from "clsx";
 
 export default function Search() {
   const { category, query } = useLocalSearchParams<
